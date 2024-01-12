@@ -1,0 +1,17 @@
+// Specify that this file uses ProtoBuf version 3 syntax.
+syntax = "proto3";
+
+// Define a package named "packagecourse".
+package packagecourse;
+
+// Message definition for a course.
+message Course {
+  // Unique identifier for the course.
+  int32 id = 1;
+
+  // Title of the course.
+  string title = 2;
+
+  // Price of the course as a string.
+  string price = 3;
+}

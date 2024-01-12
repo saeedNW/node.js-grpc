@@ -1,0 +1,74 @@
+/** Specify that this file uses ProtoBuf version 3 syntax. */
+syntax = "proto3";
+
+/** Import another ProtoBuf file named "course.proto". */
+import "course.proto";
+
+/** A message definition for a person. */
+message Person {
+  /** Unique identifier for a person. */
+  int32 id = 1;
+
+  /** Reserved tag 2 to prevent its usage in the message. */
+  reserved 2;
+
+  /** 
+	* Reserved field names "userName" and "age" to prevent their usage in the
+  * message.
+	*/
+  reserved "userName", "age";
+
+  /** First name of the person. */
+  string first_name = 3;
+
+  /** Last name of the person. */
+  string last_name = 4;
+
+  /** Indicator for whether the person is active. */
+  string is_active = 5;
+
+  /** Height of the person in floating-point format. */
+  float height = 6;
+
+  /** Image data in bytes. */
+  bytes image = 7;
+
+  /** List of phone numbers for the person. */
+  repeated string phones = 8;
+
+  /** Enumeration for different skills. */
+  enum Skills {
+    BACKEND = 0;
+    NODE = 1;
+    MONGODB = 2;
+    FRONTEND = 3;
+    REACT = 4;
+  }
+
+  /** Field to represent the person's skill. */
+  Skills skill = 9;
+
+  /** Nested message definition for representing a date. */
+  Date birthday = 10;
+
+  /** Reference to the "Course" message defined in "course.proto". */
+  packageCourse.Course course = 11;
+}
+
+/** Message definition for a date. */
+message Date {
+  /** Year component of the date. */
+  int32 year = 1;
+
+  /** Month component of the date. */
+  int32 month = 2;
+
+  /** Day component of the date. */
+  int32 day = 3;
+
+  /** Week component of the date. */
+  int32 week = 4;
+
+  /** Time component of the date as a string. */
+  string time = 5;
+}
