@@ -1,0 +1,29 @@
+/** initialize ptoto3 */
+syntax = "proto3";
+
+/** define a package name for the proto */
+package echoPackage;
+
+/** define a message to echo the given message */
+message EchoMessage { string value = 1; }
+
+/** message definition for a list of EchoMessage items. */
+message EchosList { repeated EchoMessage echo = 1; }
+
+message Empty {}
+
+/** define a sample serviece */
+service EchoService {
+  /** classic request & response */
+  rpc EchoUnary(EchoMessage) returns (EchoMessage);
+  /**
+  * send classic request and receive data stream as response.
+  * by defining the first value as Empty message then the 
+  * client can send the request without any required data.
+  */
+  rpc EchoServerStream(Empty) returns (stream EchoMessage);
+  /** send request as data stream and receive classic response */
+  rpc EchoClientStream(stream EchoMessage) returns (EchosList);
+  /** send and receive data stream as request and response */
+  rpc BidiStream(stream EchoMessage) returns (stream EchoMessage);
+}
