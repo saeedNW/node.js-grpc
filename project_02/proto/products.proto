@@ -1,0 +1,39 @@
+/* define proto syntax version */
+syntax = "proto3";
+
+/* define a package name for the proto buffer */
+package productPackage;
+
+/* define a message for products */
+message Product {
+  int32 id = 1;
+  string title = 2;
+  string price = 3;
+}
+
+/* define an empty message to hanle empry requests */
+message Empty {}
+
+/* define a message to handle product id request */
+message ProductId { int32 id = 1; }
+
+/* define a nessage to handle product list request */
+message ProductList { repeated Product products = 1; }
+
+/* define a message to handle new product request */
+message NewProduct {
+  string title = 1;
+  string price = 2;
+}
+
+/* define a message to handle request responce */
+message Result { string status = 1; }
+
+/* create protocol buffer services */
+service ProductService {
+  rpc listProducts(Empty) returns (ProductList);
+  rpc getProduct(ProductId) returns (Product);
+  rpc createProduct(NewProduct) returns (Result);
+  rpc updateProduct(Product) returns (Result);
+  rpc deleteProduct(ProductId) returns (Result);
+}
