@@ -20,7 +20,7 @@ has its own project and structure to work and interact with gRPC system.
 
 - **project 02**:
 
-  This directory contains a simple product management product which is developed
+  This directory contains a simple product management project which is developed
   in order to increase the level of understanding of how to create a connection
   between a **gRPC service** and a **node.js** application and how to send and
   receive requests between two system.
