@@ -2,7 +2,7 @@
 
 This project Serve as a sample project for interacting with **gRPC** in Node.js.
 There are 3 sub directories in this repository. Every one of these directories,
-has its own project and structure to work and interacting with gRPC system.
+has its own project and structure to work and interact with gRPC system.
 
 ## Sub directories
 
